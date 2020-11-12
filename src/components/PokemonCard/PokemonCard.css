@@ -1,0 +1,5 @@
+.pokemon-card {
+    height: 300px;
+    background-color: grey;
+    box-shadow: 0 0 5px 5px rgba(122, 122, 122, 0.3);
+}

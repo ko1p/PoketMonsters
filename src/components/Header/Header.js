@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import './Header.css'
-import poketBallImg from '../../images/poketball.svg'
+import pocketBallImg from '../../images/pocketball.svg'
 
 export default class Header extends Component {
     render() {
         return (
             <header className="header">
-                <img className="header__poketball" src={poketBallImg} alt="poket ball"/>
+                <img className="header__pocketball" src={pocketBallImg} alt="pocket ball"/>
                 <span className="header__logo">PoketMonsters</span>
             </header>
         );
