@@ -1,0 +1,41 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 100, 100, 0.4);
+    z-index: 1000;
+}
+
+.popup__container {
+    position: relative;
+    margin: 200px auto;
+    width: 60%;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.popup__close {
+    position: absolute;
+    top: -35px;
+    right: -35px;
+}
+
+.popup__list-items {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    justify-content: center;
+    justify-items: center;
+    padding: 50px;
+    list-style-type: none;
+}
+
+.popup__list-item {
+    margin: 2px;
+}
+
+.popup__list-item:hover {
+    background-color: #f5dfdf;
+}
