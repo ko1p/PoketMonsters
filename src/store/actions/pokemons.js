@@ -31,3 +31,25 @@ function fetchPokemonsListSuccess(list) {
         payload: list,
     }
 }
+
+export function fetchPokemonInfoById(id) {
+    return async dispatch => {
+        try {
+            console.log(id)
+            const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+            const data = await axios.get(url)
+            const result = data.data
+            console.log(result)
+            dispatch(fetchPokemonInfoByIdSucces(result))
+        } catch (e) {
+            console.log(e)
+        }
+    }
+}
+
+function fetchPokemonInfoByIdSucces(info) {
+    return {
+        type: "ADD_CURRENT_POKEMON_INFO",
+        payload: info,
+    }
+}

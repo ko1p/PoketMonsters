@@ -6,6 +6,7 @@ export function popupClose() {
 }
 
 export function popupOpen() {
+    console.log(321)
     return {
         type: "POPUP_OPEN",
     }

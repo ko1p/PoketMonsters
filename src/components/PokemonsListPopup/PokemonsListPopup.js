@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import "./PokemonsListPopup.css"
 import closeImg from '../../images/close.svg'
-import {fetchPokemonsList} from "../../store/actions/pokemons";
+import {fetchPokemonInfoById, fetchPokemonsList} from "../../store/actions/pokemons";
 import {popupClose, popupOpen} from "../../store/actions/popup";
 
 class PokemonsListPopup extends Component {
@@ -24,9 +25,12 @@ class PokemonsListPopup extends Component {
         })
     }
 
+
+
     render() {
         return (
             <>
+                {console.log('renderComponent')}
                 {
                     this.props.popup.isOpened ?
                         <div className="popup">
@@ -35,9 +39,9 @@ class PokemonsListPopup extends Component {
                                 <ul className="popup__list-items">
                                     {this.sortPokemonsByAlphabet(this.props.pokemons.list).map((pokemon, index) => {
                                         return (
-                                            <a href={`https://localhost:3000/pokemons/${pokemon.id}`}>
-                                                <li className="popup__list-item" key={`pokemon-item-${index}`}>{pokemon.name}</li>
-                                            </a>
+                                            <Link to={{pathname: `/pokemons/${pokemon.id}`}} key={`pokemon-item-${index}`} onClick={this.props.popupClose}>
+                                                <li className="popup__list-item">{pokemon.name}</li>
+                                            </Link>
                                         )
                                     })}
                                 </ul>

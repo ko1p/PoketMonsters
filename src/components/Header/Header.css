@@ -9,7 +9,8 @@
 
 .header__logo {
     font-family: Pokemon Solid;
-    font-size: 25px;
+    padding: 0px 0 15px 0;
+    font-size: 40px;
     color: white;
     margin-left: 50px;
 }

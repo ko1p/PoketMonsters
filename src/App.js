@@ -1,18 +1,22 @@
 import './App.css';
+import {Switch, BrowserRouter, Route} from 'react-router-dom'
 import Header from "./components/Header/Header";
 import PokemonsCardlist from "./components/PokemonsCardlist/PokemonsCardlist";
 import PokemonProfile from "./components/PokemonProfile/PokemonProfile";
-import Navigation from "./components/Navigation/Navigation";
-import PokemonsListPopup from "./components/PokemonsListPopup/PokemonsListPopup";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Navigation />
-      {/*<PokemonsCardlist />*/}
-      <PokemonProfile />
-      <PokemonsListPopup />
+        <BrowserRouter>
+            <Header />
+            <Switch>
+                <Route exact path="/" component={PokemonsCardlist} />
+                <Route exact path="/pokemons/:pokemonId" component={PokemonProfile} />
+            </Switch>
+            {/*/!*<PokemonsCardlist />*!/*/}
+            {/*<PokemonProfile />*/}
+            {/*<PokemonsListPopup />*/}
+        </BrowserRouter>
     </div>
   );
 }

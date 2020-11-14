@@ -1,11 +1,16 @@
 .pokemon-profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
+.pokemon-profile__header {
+    text-align: center;
+}
+
 .pokemon__container {
+    position: relative;
     max-width: 475px;
     width: 100%;
     margin: 80px 0 0 0;
@@ -13,14 +18,66 @@
     border-radius: 20px;
 }
 
+.pokemon__num {
+    width: 86px;
+    font-family: "Pokemon Solid";
+    font-size: 30px;
+    top: 30px;
+    left: 30px;
+    position: absolute;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.pokemon__num span {
+    display: flex;
+    justify-content: center;
+}
+
+/*.pokemon__info {*/
+/*    list-style-type: none;*/
+/*    font-family: Roboto;*/
+/*    font-size: 22px;*/
+/*    margin: 50px 25px;*/
+/*    padding: 0;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
 .pokemon__info {
-    list-style-type: none;
-    font-family: Roboto;
-    font-size: 22px;
-    margin: 50px 25px;
-    padding: 0;
+    margin: 0 auto;
+    justify-items: center;
+    padding: 0 20px;
+    width: 80%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.pokemon__ceil-info {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #e0dede;
+    border-collapse: collapse;
+}
+
+.pokemon__progress-info {
+    width: 90%;
+}
+
+.pokemon__abilities {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.pokemon__abilities-list {
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
 }
 
 

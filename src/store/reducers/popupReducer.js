@@ -6,16 +6,14 @@ export default function popupReducer(state = initialState, action) {
     switch (action.type) {
         case "POPUP_OPEN": {
             return {
-                popup: {
-                    isOpened: true
-                }
+                ...state,
+                isOpened: true
             }
         }
         case "POPUP_CLOSE": {
             return {
-                popup: {
-                    isOpened: false
-                }
+                ...state,
+                isOpened: false
             }
         }
         default: {
