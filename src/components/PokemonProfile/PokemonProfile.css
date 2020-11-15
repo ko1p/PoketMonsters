@@ -9,11 +9,21 @@
     text-align: center;
 }
 
+.pokemon-profile__description {
+    text-align: center;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+}
+
 .pokemon__container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 475px;
     width: 100%;
-    margin: 80px 0 0 0;
+    margin: 40px 0;
     box-shadow: rgba(100, 100, 100, 0.3) 10px 10px 10px 10px;
     border-radius: 20px;
 }
@@ -33,16 +43,6 @@
     display: flex;
     justify-content: center;
 }
-
-/*.pokemon__info {*/
-/*    list-style-type: none;*/
-/*    font-family: Roboto;*/
-/*    font-size: 22px;*/
-/*    margin: 50px 25px;*/
-/*    padding: 0;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
 
 .pokemon__info {
     margin: 0 auto;
@@ -70,14 +70,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80%;
+    margin-bottom: 20px;
 }
 
 .pokemon__abilities-list {
     margin: 0 auto 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
 }
 
 

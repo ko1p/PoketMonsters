@@ -14,11 +14,19 @@ export default function pokemonsReducer(state = initialState, action) {
             }
         }
         case "ADD_CURRENT_POKEMON_INFO": {
-            console.log('payload')
             return {
                 ...state,
                 currentPokemon: {
+                    ...state.currentPokemon,
                     ...action.payload
+                }
+            }
+        }
+        case "ADD_POKEMON_DESCRIPTION": {
+            return {
+                ...state,
+                currentPokemon: {
+                    description: action.payload
                 }
             }
         }

@@ -3,18 +3,19 @@ import {connect} from 'react-redux'
 import './PokemonProfile.css'
 import PokemonsListPopup from "../PokemonsListPopup/PokemonsListPopup";
 import Navigation from "../Navigation/Navigation";
-import {fetchPokemonInfoById} from "../../store/actions/pokemons";
+import {fetchPokemonDescription, fetchPokemonInfoById} from "../../store/actions/pokemons";
 
 class PokemonProfile extends Component {
 
     componentDidMount() {
         this.props.fetchPokemonInfoById(this.props.match.params.pokemonId)
-        console.log('отрендерил профайлнф')
+        this.props.fetchPokemonDescription(this.props.match.params.pokemonId)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.match.params.pokemonId !== this.props.match.params.pokemonId) {
             this.props.fetchPokemonInfoById(this.props.match.params.pokemonId)
+            this.props.fetchPokemonDescription(this.props.match.params.pokemonId)
         }
     }
 
@@ -36,6 +37,11 @@ class PokemonProfile extends Component {
                         <div className="pokemon__num">
                             <span># {this.props.match.params.pokemonId}</span>
                         </div>
+                        <h2 className="pokemon-profile__header">Description:</h2>
+                        <p className="pokemon-profile__description">
+                            {this.props.pokemon.description}
+                            {console.log(this.props.pokemon.description)}
+                        </p>
                         <h2 className="pokemon-profile__header">Info:</h2>
                         <div className="pokemon__info">
                             <span className="pokemon__ceil-info">Name:</span>
@@ -54,6 +60,10 @@ class PokemonProfile extends Component {
                             <span className="pokemon__ceil-info"><progress className="pokemon__progress-info" value={this.props.pokemon.stats && this.props.pokemon.stats[2].base_stat} max="100" /></span>
                             <span className="pokemon__ceil-info">Special attack:</span>
                             <span className="pokemon__ceil-info"><progress className="pokemon__progress-info" value={this.props.pokemon.stats && this.props.pokemon.stats[3].base_stat} max="100" /></span>
+                            <span className="pokemon__ceil-info">Special defense:</span>
+                            <span className="pokemon__ceil-info"><progress className="pokemon__progress-info" value={this.props.pokemon.stats && this.props.pokemon.stats[4].base_stat} max="100" /></span>
+                            <span className="pokemon__ceil-info">Speed:</span>
+                            <span className="pokemon__ceil-info"><progress className="pokemon__progress-info" value={this.props.pokemon.stats && this.props.pokemon.stats[5].base_stat} max="100" /></span>
                         </div>
                         <div className="pokemon__abilities">
                             <h2 className="pokemon-profile__header">Abilities:</h2>
@@ -76,7 +86,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchPokemonInfoById: (id) => dispatch(fetchPokemonInfoById(id))
+        fetchPokemonInfoById: (id) => dispatch(fetchPokemonInfoById(id)),
+        fetchPokemonDescription: (id) => dispatch(fetchPokemonDescription(id)),
     }
 }
 
