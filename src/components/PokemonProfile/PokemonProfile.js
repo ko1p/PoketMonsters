@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import './PokemonProfile.css'
-import PokemonsListPopup from "../PokemonsListPopup/PokemonsListPopup";
 import Navigation from "../Navigation/Navigation";
 import {fetchPokemonDescription, fetchPokemonInfoById} from "../../store/actions/pokemons";
 
@@ -19,6 +18,10 @@ class PokemonProfile extends Component {
         }
     }
 
+    toUpperCaseFirstLetter(str) {
+        return str[0].toUpperCase() + str.slice(1)
+    }
+
     pokemonListAbilities() {
         const abilities = this.props.pokemon.abilities.map(item => item.ability.name)
         return abilities.join(', ')[0].toUpperCase() + abilities.join(', ').slice(1)
@@ -27,6 +30,7 @@ class PokemonProfile extends Component {
     render() {
         return (
             <>
+                {console.log('render', this.props.match.params.pokemonId)}
                 <Navigation />
                 <section className="pokemon-profile">
                     <div className="pokemon__container">
@@ -35,23 +39,22 @@ class PokemonProfile extends Component {
                                 src={`https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/other/official-artwork/${this.props.match.params.pokemonId}.png`} alt="pikachu"/>
                         </div>
                         <div className="pokemon__num">
-                            <span># {this.props.match.params.pokemonId}</span>
+                            <span># {this.props.pokemon.id}</span>
                         </div>
                         <h2 className="pokemon-profile__header">Description:</h2>
                         <p className="pokemon-profile__description">
                             {this.props.pokemon.description}
-                            {console.log(this.props.pokemon.description)}
                         </p>
                         <h2 className="pokemon-profile__header">Info:</h2>
                         <div className="pokemon__info">
                             <span className="pokemon__ceil-info">Name:</span>
-                            <span className="pokemon__ceil-info">{this.props.pokemon.name}</span>
+                            <span className="pokemon__ceil-info">{this.props.pokemon.name && this.toUpperCaseFirstLetter(this.props.pokemon.name)}</span>
                             <span className="pokemon__ceil-info">Height:</span>
                             <span className="pokemon__ceil-info">{this.props.pokemon.height / 10} m</span>
                             <span className="pokemon__ceil-info">Weight:</span>
                             <span className="pokemon__ceil-info">{this.props.pokemon.weight / 10} kg</span>
                             <span className="pokemon__ceil-info">Type:</span>
-                            <span className="pokemon__ceil-info">{this.props.pokemon.types && this.props.pokemon.types[0].type.name}</span>
+                            <span className="pokemon__ceil-info">{this.props.pokemon.types && this.toUpperCaseFirstLetter(this.props.pokemon.types[0].type.name)}</span>
                             <span className="pokemon__ceil-info">Health points:</span>
                             <span className="pokemon__ceil-info"><progress className="pokemon__progress-info" value={this.props.pokemon.stats && this.props.pokemon.stats[0].base_stat} max="100" /></span>
                             <span className="pokemon__ceil-info">Attack:</span>
@@ -71,7 +74,6 @@ class PokemonProfile extends Component {
                         </div>
                     </div>
                 </section>
-                <PokemonsListPopup />
             </>
         )
     }

@@ -13,9 +13,6 @@ function App() {
                 <Route exact path="/" component={PokemonsCardlist} />
                 <Route exact path="/pokemons/:pokemonId" component={PokemonProfile} />
             </Switch>
-            {/*/!*<PokemonsCardlist />*!/*/}
-            {/*<PokemonProfile />*/}
-            {/*<PokemonsListPopup />*/}
         </BrowserRouter>
     </div>
   );

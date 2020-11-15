@@ -26,7 +26,8 @@ export default function pokemonsReducer(state = initialState, action) {
             return {
                 ...state,
                 currentPokemon: {
-                    description: action.payload
+                    ...state.currentPokemon,
+                    description: action.payload,
                 }
             }
         }

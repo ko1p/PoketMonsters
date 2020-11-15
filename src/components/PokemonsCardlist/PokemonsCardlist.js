@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import './PokemonsCardlist.css'
 import PokemonCard from "../PokemonCard/PokemonCard";
 import {fetchPokemonsList} from "../../store/actions/pokemons";
+import Navigation from "../Navigation/Navigation";
 
 class PokemonsCardlist extends Component {
 
@@ -12,18 +13,20 @@ class PokemonsCardlist extends Component {
 
     render() {
         return (
-            <section className="pokemons-list">
-                {console.log(this.props.pokemons, 'Рендер')}
-                {   this.props.pokemons.list ?
-                    this.props.pokemons.list.map((item, index) => {
-                        return(
-                            <PokemonCard pokemon={item} key={`pokemon-${index}`}/>
-                        )
-                    })
-                    :
-                    null
-                }
-            </section>
+            <>
+                <Navigation />
+                <section className="pokemons-list">
+                    {   this.props.pokemons.list ?
+                        this.props.pokemons.list.map((item, index) => {
+                            return(
+                                <PokemonCard pokemon={item} key={`pokemon-${index}`}/>
+                            )
+                        })
+                        :
+                        null
+                    }
+                </section>
+            </>
         );
     }
 }
