@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import './Header.css'
 import pocketBallImg from '../../images/pocketball.svg'
 

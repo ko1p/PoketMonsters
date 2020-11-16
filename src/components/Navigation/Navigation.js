@@ -7,7 +7,7 @@ import backImg from '../../images/back.svg'
 
 class Navigation extends Component {
 
-    sortPokemonsByAlphabet = (arr) => { // TODO: вынести в экшены
+    sortPokemonsByAlphabet = (arr) => {
         return arr.sort((a, b) => {
             if (a.name > b.name) {
                 return 1;
@@ -24,7 +24,9 @@ class Navigation extends Component {
             <nav className="nav">
                 <ul className="nav__links">
                     {
-                        this.props.match.params.pokemonId && <Link to={{pathname: "/"}} className="nav__link"><img className="nav__back" src={backImg} /> На главную</Link>
+                        this.props.match.params.pokemonId &&
+                        <Link to={{pathname: "/"}} className="nav__link"><img className="nav__back" src={backImg} alt="back arrow"/> На
+                            главную</Link>
                     }
                     <div className="dropdown nav__link">
                         <span>Список покемонов</span>
@@ -32,7 +34,8 @@ class Navigation extends Component {
                             {
                                 this.sortPokemonsByAlphabet(this.props.pokemons.list).map((pokemon, index) => {
                                     return (
-                                        <Link className="dropdown__link" to={{pathname: `/pokemons/${pokemon.id}`}} key={`pokemon-item-${index}`}>
+                                        <Link className="dropdown__link" to={{pathname: `/pokemons/${pokemon.id}`}}
+                                              key={`pokemon-item-${index}`}>
                                             <li className="dropdown__item">{pokemon.name}</li>
                                         </Link>
                                     )

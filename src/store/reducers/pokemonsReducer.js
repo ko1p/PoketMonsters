@@ -5,7 +5,7 @@ const initialState = {
 
 export default function pokemonsReducer(state = initialState, action) {
     switch (action.type) {
-        case "ADD_POKEMONS_NAMES": { // TODO переделать имя
+        case "ADD_POKEMONS_LIST": {
             return {
                 ...state,
                 list: [

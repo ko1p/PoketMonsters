@@ -11,8 +11,7 @@ import rootReducer from "./store/reducers/rootReducer";
 const composeEnhancers =
     typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        }) : compose;
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
 
 const store = createStore(
@@ -23,12 +22,12 @@ const store = createStore(
 )
 
 ReactDOM.render(
-  <React.StrictMode>
-      <Provider store={store}>
-          <App />
-      </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 reportWebVitals();

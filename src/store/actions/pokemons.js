@@ -25,7 +25,7 @@ export function fetchPokemonsList() {
 
 function fetchPokemonsListSuccess(list) {
     return {
-        type: "ADD_POKEMONS_NAMES",
+        type: "ADD_POKEMONS_LIST",
         payload: list,
     }
 }
@@ -51,7 +51,6 @@ function fetchPokemonInfoByIdSucces(info) {
 }
 
 
-
 export function fetchPokemonDescription(pokemonId) {
     return async dispatch => {
         try {
@@ -67,7 +66,7 @@ export function fetchPokemonDescription(pokemonId) {
                 return false
             })
             dispatch(fetchPokemonDescriptionSuccess(pokemonDescription))
-        } catch(e) {
+        } catch (e) {
             console.log(e)
         }
     }
