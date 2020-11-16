@@ -10,12 +10,11 @@ export function fetchPokemonsList() {
                 const pokemonId = item.url.match(/\/\d{1,4}\//g).toString().replace(/\//g, "")
                 const imgUrl = `https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`
                 const capitaliseName = item.name[0].toUpperCase() + item.name.slice(1)
-                const info = {
+                return {
                     name: capitaliseName,
                     imgUrl: imgUrl,
                     id: pokemonId,
                 }
-                return info
             })
             dispatch(fetchPokemonsListSuccess(pokemonsList))
         } catch (e) {
@@ -59,12 +58,10 @@ export function fetchPokemonDescription(pokemonId) {
             const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`
             const data = await axios.get(url)
             const result = data.data.flavor_text_entries
-            console.log(result)
             let pokemonDescription;
             result.some(item => {
                 if (item.language.name === 'en') {
-                    const regEx = /\/g
-                    pokemonDescription = item.flavor_text.replace(regEx, ' ')
+                    pokemonDescription = item.flavor_text.replace(/\n/g, ' ').replace(/\f/g, ' ')
                     return true
                 }
                 return false

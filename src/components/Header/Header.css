@@ -8,8 +8,8 @@
 }
 
 .header__logo {
-    font-family: Pokemon Solid;
-    padding: 0px 0 15px 0;
+    font-family: Pokemon Solid, Georgia, sans-serif;
+    padding: 0 0 15px 0;
     font-size: 40px;
     color: white;
     margin-left: 50px;
@@ -20,3 +20,18 @@
     height: 50px;
     margin-left: 20px;
 }
+
+@media screen and (max-width: 480px) {
+    .header__logo {
+        padding: 0 0 10px 0;
+        font-size: 30px;
+        margin-left: 25px;
+    }
+
+    .header__pocketball {
+        width: 35px;
+        height: 35px;
+        margin-left: 15px;
+    }
+}
+

@@ -30,13 +30,12 @@ class PokemonProfile extends Component {
     render() {
         return (
             <>
-                {console.log('render', this.props.match.params.pokemonId)}
                 <Navigation />
                 <section className="pokemon-profile">
                     <div className="pokemon__container">
                         <div className="pokemon__image">
                             <img
-                                src={`https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/other/official-artwork/${this.props.match.params.pokemonId}.png`} alt="pikachu"/>
+                                src={`https://github.com/PokeAPI/sprites/raw/master/sprites/pokemon/other/official-artwork/${this.props.match.params.pokemonId}.png`} alt="pikachu" style={{width: '80%'}}/>
                         </div>
                         <div className="pokemon__num">
                             <span># {this.props.pokemon.id}</span>

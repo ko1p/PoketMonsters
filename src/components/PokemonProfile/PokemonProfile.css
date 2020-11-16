@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .pokemon-profile__header {
@@ -28,10 +29,16 @@
     border-radius: 20px;
 }
 
+.pokemon__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .pokemon__num {
-    width: 86px;
-    font-family: "Pokemon Solid";
-    font-size: 30px;
+    width: 18%;
+    font-family: Pokemon Solid, Georgia, sans-serif;
+    font-size: 26px;
     top: 30px;
     left: 30px;
     position: absolute;
@@ -77,5 +84,13 @@
 .pokemon__abilities-list {
     margin: 0 auto 20px auto;
 }
+
+@media screen and (max-width: 400px) {
+    .pokemon__num {
+        font-size: 20px;
+    }
+}
+
+
 
 
