@@ -1,13 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router'
+import {useSelector} from 'react-redux'
+import {useParams, withRouter} from 'react-router'
 import './Navigation.css'
 import backImg from '../../images/back.svg'
 
-class Navigation extends Component {
+function Navigation() {
+    const state = useSelector(state => ({pokemons: state.pokemons}));
+    const pokemonId = useParams().pokemonId;
 
-    sortPokemonsByAlphabet = (arr) => {
+    const sortPokemonsByAlphabet = (arr) => {
         return arr.sort((a, b) => {
             if (a.name > b.name) {
                 return 1;
@@ -19,41 +21,33 @@ class Navigation extends Component {
         })
     }
 
-    render() {
-        return (
-            <nav className="nav">
-                <ul className="nav__links">
-                    {
-                        this.props.match.params.pokemonId &&
-                        <Link to={{pathname: "/"}} className="nav__link"><img className="nav__back" src={backImg} alt="back arrow"/> На
-                            главную</Link>
-                    }
-                    <div className="dropdown nav__link">
-                        <span>Список покемонов</span>
-                        <div className="dropdown-content">
-                            {
-                                this.sortPokemonsByAlphabet(this.props.pokemons.list).map((pokemon, index) => {
-                                    return (
-                                        <Link className="dropdown__link" to={{pathname: `/pokemons/${pokemon.id}`}}
-                                              key={`pokemon-item-${index}`}>
-                                            <li className="dropdown__item">{pokemon.name}</li>
-                                        </Link>
-                                    )
-                                })
-                            }
-                        </div>
+    return (
+        <nav className="nav">
+            <ul className="nav__links">
+                {
+                    pokemonId &&
+                    <Link to={{pathname: "/"}} className="nav__link"><img className="nav__back" src={backImg}
+                                                                          alt="back arrow"/> На
+                        главную</Link>
+                }
+                <div className="dropdown nav__link">
+                    <span>Список покемонов</span>
+                    <div className="dropdown-content">
+                        {
+                            sortPokemonsByAlphabet(state.pokemons.list).map((pokemon, index) => {
+                                return (
+                                    <Link className="dropdown__link" to={{pathname: `/pokemons/${pokemon.id}`}}
+                                          key={`pokemon-item-${index}`}>
+                                        <li className="dropdown__item">{pokemon.name}</li>
+                                    </Link>
+                                )
+                            })
+                        }
                     </div>
-                </ul>
-            </nav>
-        )
-    }
+                </div>
+            </ul>
+        </nav>
+    )
 }
 
-
-function mapStateToProps(state) {
-    return {
-        pokemons: state.pokemons,
-    }
-}
-
-export default connect(mapStateToProps, null)(withRouter(Navigation))
+export default withRouter(Navigation);
