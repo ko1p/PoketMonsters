@@ -14,8 +14,10 @@ function PokemonsCardlist() {
 
     const dispatch = useDispatch()
 
+    
     useEffect(() => {
         dispatch(fetchPokemonsList());
+        // eslint-disable-next-line
     }, [])
 
     return (
