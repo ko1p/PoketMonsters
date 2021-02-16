@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/PoketMonsters/static/css/main.c1799cbe.chunk.css",
+    "main.js": "/PoketMonsters/static/js/main.4541d401.chunk.js",
+    "main.js.map": "/PoketMonsters/static/js/main.4541d401.chunk.js.map",
+    "runtime-main.js": "/PoketMonsters/static/js/runtime-main.ad0b7d79.js",
+    "runtime-main.js.map": "/PoketMonsters/static/js/runtime-main.ad0b7d79.js.map",
+    "static/js/2.faee23c1.chunk.js": "/PoketMonsters/static/js/2.faee23c1.chunk.js",
+    "static/js/2.faee23c1.chunk.js.map": "/PoketMonsters/static/js/2.faee23c1.chunk.js.map",
+    "static/js/3.90f0d5a4.chunk.js": "/PoketMonsters/static/js/3.90f0d5a4.chunk.js",
+    "static/js/3.90f0d5a4.chunk.js.map": "/PoketMonsters/static/js/3.90f0d5a4.chunk.js.map",
+    "index.html": "/PoketMonsters/index.html",
+    "static/css/main.c1799cbe.chunk.css.map": "/PoketMonsters/static/css/main.c1799cbe.chunk.css.map",
+    "static/js/2.faee23c1.chunk.js.LICENSE.txt": "/PoketMonsters/static/js/2.faee23c1.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/PoketMonsters/static/media/roboto-v20-latin_cyrillic-regular.f3cc56e1.woff2",
+    "static/media/back.ff809686.svg": "/PoketMonsters/static/media/back.ff809686.svg",
+    "static/media/pocketball.d5e051f0.svg": "/PoketMonsters/static/media/pocketball.d5e051f0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ad0b7d79.js",
+    "static/js/2.faee23c1.chunk.js",
+    "static/css/main.c1799cbe.chunk.css",
+    "static/js/main.4541d401.chunk.js"
+  ]
+}
