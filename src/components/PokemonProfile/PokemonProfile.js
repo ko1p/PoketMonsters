@@ -13,7 +13,8 @@ function PokemonProfile() {
     useEffect(() => {
         dispatch(fetchPokemonInfoById(pokemonId));
         dispatch(fetchPokemonDescription(pokemonId));
-    }, [pokemonId, dispatch])
+        // eslint-disable-next-line
+    }, [pokemonId])
 
 
     function toUpperCaseFirstLetter(str) {
